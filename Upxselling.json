@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "5b65e781-afb8-4705-ae9b-1756f6ef22bb",
+		"name": "Upxselling_intership",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert patient data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dde2ae19-23ad-469e-a389-fc818f98744d",
+						"exec": [
+							"const originalSchema ={",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"id\",",
+							"    \"name\",",
+							"    \"age\",",
+							"    \"email\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"id\": {",
+							"      \"$id\": \"#/properties/id\",",
+							"      \"type\": \"integer\",",
+							"      \"title\": \"The Id Schema\",",
+							"      \"default\": 0,",
+							"      \"examples\": [",
+							"        35",
+							"      ]",
+							"    },",
+							"    \"name\": {",
+							"      \"$id\": \"#/properties/name\",",
+							"      \"type\": \"string\",",
+							"      \"title\": \"The Name Schema\",",
+							"      \"default\": \"\",",
+							"      \"examples\": [",
+							"        \"Nirav\"",
+							"      ],",
+							"      \"pattern\": \"^(.*)$\"",
+							"    },",
+							"    \"age\": {",
+							"      \"$id\": \"#/properties/age\",",
+							"      \"type\": \"integer\",",
+							"      \"title\": \"The Age Schema\",",
+							"      \"default\": 0,",
+							"      \"examples\": [",
+							"        29",
+							"      ]",
+							"    },",
+							"    \"email\": {",
+							"      \"$id\": \"#/properties/email\",",
+							"      \"type\": \"string\",",
+							"      \"title\": \"The Email Schema\",",
+							"      \"default\": \"\",",
+							"      \"examples\": [",
+							"        \"dhruvaga11@gmail.com\"",
+							"      ],",
+							"      \"pattern\": \"^(.*)$\"",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"var result = tv4.validate(data,originalSchema);",
+							"if(tv4.error){",
+							"    tests[\"Response is Invalid: \"+tv4.error]=false;",
+							"}",
+							"else{",
+							"    tests[\"Response is Valid\"]=true;",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nirav\",\n    \"age\": \"29\",\n    \"email\": \"dhruvaga11@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				},
+				"description": "Data format\n\n\t{\n\t\tname: \"Nirav\",\n\t\tAge: \"29\",\n\t\tEmail: \"nirav@upxselling.com\"\n\t}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50a487c5-6d35-4d86-8405-c36e97e7c59a",
+						"exec": [
+							"const originalSchema = {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"array\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"items\": {",
+							"    \"$id\": \"#/items\",",
+							"    \"type\": \"object\",",
+							"    \"title\": \"The Items Schema\",",
+							"    \"required\": [",
+							"      \"id\",",
+							"      \"name\",",
+							"      \"age\",",
+							"      \"email\"",
+							"    ],",
+							"    \"properties\": {",
+							"      \"id\": {",
+							"        \"$id\": \"#/items/properties/id\",",
+							"        \"type\": \"integer\",",
+							"        \"title\": \"The Id Schema\",",
+							"        \"default\": 0,",
+							"        \"examples\": [",
+							"          1",
+							"        ]",
+							"      },",
+							"      \"name\": {",
+							"        \"$id\": \"#/items/properties/name\",",
+							"        \"type\": \"string\",",
+							"        \"title\": \"The Name Schema\",",
+							"        \"default\": \"\",",
+							"        \"examples\": [",
+							"          \"kjnjk\"",
+							"        ],",
+							"        \"pattern\": \"^(.*)$\"",
+							"      },",
+							"      \"age\": {",
+							"        \"$id\": \"#/items/properties/age\",",
+							"        \"type\": \"integer\",",
+							"        \"title\": \"The Age Schema\",",
+							"        \"default\": 0,",
+							"        \"examples\": [",
+							"          5",
+							"        ]",
+							"      },",
+							"      \"email\": {",
+							"        \"$id\": \"#/items/properties/email\",",
+							"        \"type\": \"string\",",
+							"        \"title\": \"The Email Schema\",",
+							"        \"default\": \"\",",
+							"        \"examples\": [",
+							"          \"jknjk\"",
+							"        ],",
+							"        \"pattern\": \"^(.*)$\"",
+							"      }",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"var result = tv4.validate(data,originalSchema);",
+							"if(tv4.error){",
+							"    tests[\"Response is Invalid: \"+tv4.error]=false;",
+							"}",
+							"else{",
+							"    tests[\"Response is Valid\"]=true;",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				},
+				"description": "output: all the data in Array of json."
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5557271e-b205-493a-8867-1d3da8e9e736",
+						"exec": [
+							"const originalSchema = {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"array\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"items\": {",
+							"    \"$id\": \"#/items\",",
+							"    \"type\": \"object\",",
+							"    \"title\": \"The Items Schema\",",
+							"    \"required\": [",
+							"      \"id\",",
+							"      \"name\",",
+							"      \"age\",",
+							"      \"email\"",
+							"    ],",
+							"    \"properties\": {",
+							"      \"id\": {",
+							"        \"$id\": \"#/items/properties/id\",",
+							"        \"type\": \"integer\",",
+							"        \"title\": \"The Id Schema\",",
+							"        \"default\": 0,",
+							"        \"examples\": [",
+							"          21",
+							"        ]",
+							"      },",
+							"      \"name\": {",
+							"        \"$id\": \"#/items/properties/name\",",
+							"        \"type\": \"string\",",
+							"        \"title\": \"The Name Schema\",",
+							"        \"default\": \"\",",
+							"        \"examples\": [",
+							"          \"Nirav\"",
+							"        ],",
+							"        \"pattern\": \"^(.*)$\"",
+							"      },",
+							"      \"age\": {",
+							"        \"$id\": \"#/items/properties/age\",",
+							"        \"type\": \"integer\",",
+							"        \"title\": \"The Age Schema\",",
+							"        \"default\": 0,",
+							"        \"examples\": [",
+							"          29",
+							"        ]",
+							"      },",
+							"      \"email\": {",
+							"        \"$id\": \"#/items/properties/email\",",
+							"        \"type\": \"string\",",
+							"        \"title\": \"The Email Schema\",",
+							"        \"default\": \"\",",
+							"        \"examples\": [",
+							"          \"nirav@upxselling.com\"",
+							"        ],",
+							"        \"pattern\": \"^(.*)$\"",
+							"      }",
+							"    }",
+							"  }",
+							"}",
+							";",
+							"",
+							"",
+							"var data = JSON.parse(responseBody);",
+							"",
+							"var result = tv4.validate(data,originalSchema);",
+							"if(tv4.error){",
+							"    tests[\"Response is Invalid: \"+tv4.error]=false;",
+							"}",
+							"else{",
+							"    tests[\"Response is Valid\"]=true;",
+							"}",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"0\",\n    \"to\": \"29\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}search",
+					"host": [
+						"{{base_url}}search"
+					]
+				},
+				"description": " api:(get) to view data pagewise from and to pass to see that data.\n\te.g. /docapi/getAllData?from=10&to=20\n\t\toutput will be 11 to 20 records. data in Array of json."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "92c1c4c7-1cea-4daf-a098-406075c68db2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a6811632-44ab-4212-aa69-815bdcb77f4a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "03a655f7-cc9c-45c3-a5b0-975e53e3a4ea",
+			"key": "base_url",
+			"value": "http://localhost:8080/docapi/",
+			"type": "string"
+		}
+	]
+}
